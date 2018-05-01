@@ -6,16 +6,23 @@ import android.arch.lifecycle.ViewModel;
 
 import com.gomo.learndemo.DataRepository;
 import com.gomo.learndemo.bean.MessageBean;
+import com.gomo.learndemo.bean.User;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MessageViewModel extends ViewModel {
 
-    private final MutableLiveData<MessageBean> mCharacterObserver = new MutableLiveData<>();
+    private final MutableLiveData<MessageBean> mMessageObserver = new MutableLiveData<>();
 
-    public LiveData<MessageBean> getCharacterObserver() {
-        return mCharacterObserver;
+    private LiveData<User> mUserObserver;
+
+    public LiveData<MessageBean> getMessageObserver() {
+        return mMessageObserver ;
+    }
+
+    public LiveData<User> getUserObserver() {
+        return mUserObserver ;
     }
 
     public void setHoroscopeId(int horoscopeId) {
@@ -25,10 +32,14 @@ public class MessageViewModel extends ViewModel {
         characters.add(new MessageBean("body3"));
         characters.add(new MessageBean("body4"));
 
-        mCharacterObserver.setValue(characters.get(horoscopeId));
+        mMessageObserver.setValue(characters.get(horoscopeId));
     }
 
     public void getProjectList() {
-        DataRepository.getInstance().getProjectList(mCharacterObserver, "1", 294);
+        DataRepository.getInstance().getProjectList(mMessageObserver , "1", 294);
+    }
+
+    public void loadUser(int userId){
+        mUserObserver = DataRepository.getInstance().loadUser(userId);
     }
 }
