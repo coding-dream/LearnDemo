@@ -4,6 +4,7 @@ import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
 
+import com.gomo.learndemo.DataRepository;
 import com.gomo.learndemo.bean.MessageBean;
 
 import java.util.ArrayList;
@@ -25,5 +26,9 @@ public class MessageViewModel extends ViewModel {
         characters.add(new MessageBean("body4"));
 
         mCharacterObserver.setValue(characters.get(horoscopeId));
+    }
+
+    public void getProjectList() {
+        DataRepository.getInstance().getProjectList(mCharacterObserver, "1", 294);
     }
 }

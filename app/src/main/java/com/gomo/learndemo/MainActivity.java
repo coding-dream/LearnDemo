@@ -2,9 +2,9 @@ package com.gomo.learndemo;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
+import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 
 import com.gomo.learndemo.bean.MessageBean;
 import com.gomo.learndemo.viewmodel.MessageViewModel;
@@ -29,5 +29,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         viewModel.setHoroscopeId(2);
+
+        viewModel.getProjectList();
     }
 }
