@@ -8,6 +8,8 @@ import android.arch.persistence.room.Query;
 
 import com.gomo.learndemo.bean.User;
 
+import java.util.List;
+
 /**
  * Created by deeper on 2018/5/1.
  */
@@ -20,6 +22,9 @@ public interface UserDao {
     @Query("SELECT * FROM user where id = :userId")
     User getUserNomal(int userId);
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert( onConflict = OnConflictStrategy.REPLACE)
     void insert(User user);
+
+    @Query("SELECT * FROM user")
+    LiveData<List<User>> getAllUser();
 }

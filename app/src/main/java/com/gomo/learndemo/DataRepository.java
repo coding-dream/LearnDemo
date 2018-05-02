@@ -7,6 +7,8 @@ import com.gomo.learndemo.bean.MessageBean;
 import com.gomo.learndemo.bean.User;
 import com.gomo.learndemo.http.HttpApiManager;
 
+import java.util.List;
+
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
@@ -62,16 +64,29 @@ public class DataRepository {
         return userData;
     }
 
-    public Observable<Boolean> initLearnDemoData() {
+    public LiveData<List<User>> loadAllUser() {
+        LiveData<List<User>> userList = mAppDb.getUserDao().getAllUser();
+        return userList;
+    }
+
+    public Observable<Boolean> initLearnDemoData(final User user) {
         return Observable.create(new ObservableOnSubscribe<Boolean>() {
             @Override
             public void subscribe(@NonNull ObservableEmitter<Boolean> e) throws Exception {
-                User user = new User("xiaoming", "love123");
                 mAppDb.getUserDao().insert(user);
                 e.onNext(Boolean.TRUE);
             }
         })
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    /**
+     * 仅测试（不建议外面获取）
+     *
+     * @return
+     */
+    public AppDatabase getmAppDb() {
+        return mAppDb;
     }
 }

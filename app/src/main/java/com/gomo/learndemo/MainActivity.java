@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import com.gomo.learndemo.bean.MessageBean;
+import com.gomo.learndemo.util.LogUtils;
 import com.gomo.learndemo.viewmodel.MessageViewModel;
 
 public class MainActivity extends AppCompatActivity {
@@ -20,14 +21,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initData() {
-        Log.d("le", "=======> initData");
+        LogUtils.d("initData");
         MessageViewModel viewModel = ViewModelProviders.of(this).get(MessageViewModel.class);
 
         viewModel.getMessageObserver().observe(this, new Observer<MessageBean>() {
             @Override
             public void onChanged(@Nullable MessageBean messageBean) {
                 if (messageBean != null) {
-                    System.out.println("=========> " + messageBean);
+                    LogUtils.d(messageBean.toString());
                 }
             }
         });
