@@ -15,14 +15,8 @@ public class MessageViewModel extends ViewModel {
 
     private final MutableLiveData<MessageBean> mMessageObserver = new MutableLiveData<>();
 
-    private LiveData<User> mUserObserver;
-
     public LiveData<MessageBean> getMessageObserver() {
         return mMessageObserver ;
-    }
-
-    public LiveData<User> getUserObserver() {
-        return mUserObserver ;
     }
 
     public void setHoroscopeId(int horoscopeId) {
@@ -39,7 +33,4 @@ public class MessageViewModel extends ViewModel {
         DataRepository.getInstance().getProjectList(mMessageObserver , "1", 294);
     }
 
-    public void loadUser(int userId){
-        mUserObserver = DataRepository.getInstance().loadUser(userId);
-    }
 }

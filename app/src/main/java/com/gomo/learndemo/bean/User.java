@@ -10,7 +10,7 @@ import com.google.gson.annotations.SerializedName;
 public class User {
 
     @SerializedName("id")
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
     private int id;
 

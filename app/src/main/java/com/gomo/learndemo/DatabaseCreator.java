@@ -43,7 +43,7 @@ public class DatabaseCreator {
         public void migrate(@NonNull SupportSQLiteDatabase database) {
             // Create the new table
             database.execSQL(
-                    "CREATE TABLE `user_bean` (`date` TEXT, `user_id` INTEGER NOT NULL, `name` TEXT, `passwd` TEXT, PRIMARY KEY(`date`, `user_id`))");
+                    "CREATE TABLE `user` (`date` TEXT, `user_id` INTEGER NOT NULL, `name` TEXT, `passwd` TEXT, PRIMARY KEY(`date`, `user_id`))");
         }
     };
 
@@ -52,7 +52,7 @@ public class DatabaseCreator {
         public void migrate(@NonNull SupportSQLiteDatabase database) {
             // Create the new table
             database.execSQL(
-                    " CREATE TABLE `message_bean` (`id` INTEGER NOT NULL, `title` TEXT, `body` TEXT, PRIMARY KEY(`id`))");
+                    " CREATE TABLE `message` (`id` INTEGER NOT NULL, `title` TEXT, `body` TEXT, PRIMARY KEY(`id`))");
         }
     };
 }

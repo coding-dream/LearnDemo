@@ -17,13 +17,7 @@ public class StartViewModel extends ViewModel {
     private MutableLiveData<Boolean> mHadInitObserver = new MutableLiveData<>();
 
     public StartViewModel() {
-        DataRepository.getInstance().initLearnDemoData()
-                .subscribe(new Consumer<Boolean>() {
-                    @Override
-                    public void accept(Boolean hasInit) throws Exception {
-                        mHadInitObserver.setValue(hasInit);
-                    }
-                });
+
     }
 
     public LiveData<Boolean> getInitObserver() {
