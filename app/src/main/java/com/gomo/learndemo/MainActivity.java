@@ -33,7 +33,5 @@ public class MainActivity extends AppCompatActivity {
         });
         viewModel.setHoroscopeId(2);
         viewModel.getProjectList();
-
-
     }
 }
