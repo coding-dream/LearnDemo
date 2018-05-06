@@ -6,5 +6,5 @@ package com.gomo.learndemo.rx;
 
 public class RxUtils {
 
-    
+
 }

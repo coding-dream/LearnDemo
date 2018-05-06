@@ -23,12 +23,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
-        <activity android:name=".MainActivity" />
-=======
         <activity android:name=".MainActivity"></activity>
         <activity android:name=".RoomTestActivity"></activity>
->>>>>>> 66cccf4582f4353609c5c409946618c72dd5717f
     </application>
 
 </manifest>
